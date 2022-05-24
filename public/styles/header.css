@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  padding-top: 14em;
+  padding-bottom: 10em;
+  background-color: #bc4749;
+  background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+}
+
+h2 {
+  margin: 0;
+  color: white;
+}
+
