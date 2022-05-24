@@ -7,6 +7,15 @@
   margin-bottom:5%;
 }
 
+.header-icon {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon > span {
+  margin-left: 10px;
+}
+
 #tweet-text {
 width: 100%;
 border: none;
@@ -47,6 +56,7 @@ article.tweet header{
 
 article.tweet footer{
   display:flex;
+  align-items: center;
   border-top: 3px solid;
   justify-content: space-between;
   margin-top: 20px;
@@ -58,17 +68,25 @@ article.tweet footer{
   padding-top: 20px;
   padding-right: 20px;
   padding-left: 20px;
+  
 }
 
 .tweet:hover {
   box-shadow: 6px 3px 3px grey;
 }
 
-.fa-solid {
+.tweet-icon {
   color: #4056A1;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
-.fa-solid:hover {
+.tweet-icon > i:hover {
   color:#ffca28
 }
+
+footer > span {
+  margin-top: 10px;
+  margin-left:10px;
+}
+
