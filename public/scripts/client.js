@@ -4,32 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$( document ).ready(function() {
-  const tweetData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
-  
+$(document).ready(function () {
   // Function renderTweets ->
   // loops through tweets, calls createTweetElement for each tweet, takes return value and appends it to the tweets container
   const renderTweets = function (tweets) {
@@ -40,16 +15,17 @@ $( document ).ready(function() {
     $($tweetsContainer).appendTo(".container");
   };
   
-// Event Listener and Prevent the Default Behaviour
+  // Event Listener and Prevent the Default Behaviour
   $("form").submit(function (event) {
     event.preventDefault();
-    var formData = $(this).serialize();
+    const formData = $(this).serialize();
     $.ajax({
       type: "POST",
       url: '/tweets',
       data: formData,
       success: function (data) {
-        renderTweets(data);
+        $(".tweets-container").empty()
+        loadTweets();
       }, error: function () {
         alert('error loading page');
       }
@@ -57,20 +33,20 @@ $( document ).ready(function() {
   });
   
   // Function createTweetElement
-    const createTweetElement = function (tweet) {
-      const $tweetData = `<article class="tweet">
+  const createTweetElement = function (tweet) {
+    return $tweetData = $(`<article class="tweet">
       <header>
         <div class="header-icon">
-          <img src="https://i.imgur.com/73hZDYK.png">
+          <img src="${tweet.user.avatars}">
           <span class="span-tweet">${tweet.user.name}</span>
         </div>
         <h3>${tweet.user.handle}</h3>
       </header>
       <section>
-     <p>If I have seen further it is by standing on the shoulders of giants</p>
+      <p>${tweet.content.text}</p>
       </section>
       <footer>
-        <span>${tweet.user.created_at}</span>
+        <span>${timeago.format(tweet.created_at)}</span>
         <div class="tweet-icon">
           <i class="fa-solid fa-flag"></i>
           <i class="fa-solid fa-retweet"></i>
@@ -78,11 +54,29 @@ $( document ).ready(function() {
         </div>
       </footer>
     </article>
-    `;
-      return $tweetData;
+    `);
   }
-  renderTweets(tweetData);
-});
+  
+    // Function loadTweets
+    function loadTweets() {
+      $.ajax({
+        type: "GET",
+        url: '/tweets',
+        success: function (data) {
+          const sortedData = data.sort((pre, crr) => {
+            return crr.created_at - pre.created_at;
+          })
+          renderTweets(sortedData);
+        }, error: function () {
+          alert('error loading page');
+        }
+      });
+    }
+  loadTweets();
+    // renderTweets(tweetData);
+  });
+
+
 
 //   const $tweet = createTweetElement(tweetData);
 
