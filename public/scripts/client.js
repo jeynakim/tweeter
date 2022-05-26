@@ -20,9 +20,9 @@ $(document).ready(function () {
     event.preventDefault();
     const formData = $(this).serialize();
     if ($('#tweet-text').val().length > 140) {
-     alert('You have reached the maximum message length')
+      return $('.error-message').text('Oops! You have reached the maximum message length(140)').slideDown();
     } else if ($('#tweet-text').val().length === 0) {
-      alert('Please add your message to post your tweet')
+      return $('.error-message').text('Please add any message to post your tweet!').slideDown();
     } else {
       $.ajax({
         type: "POST",
@@ -39,18 +39,16 @@ $(document).ready(function () {
     }
   });
   // Function createTweetElement
-  const createTweetElement = function (tweet) {
-    return ($tweetData = $(`<article class="tweet">
+const createTweetElement = function (tweet) {
+ const $tweetData = $(`<article class="tweet">
       <header>
-        <div class="header-icon">
+        <div class="avatar-icon">
           <img src="${tweet.user.avatars}">
           <span class="span-tweet">${tweet.user.name}</span>
         </div>
         <h3>${tweet.user.handle}</h3>
       </header>
-      <section>
-      <p>${tweet.content.text}</p>
-      </section>
+      <p class ="tweet-content">${tweet.content.text}</p>
       <footer>
         <span>${timeago.format(tweet.created_at)}</span>
         <div class="tweet-icon">
@@ -60,8 +58,10 @@ $(document).ready(function () {
         </div>
       </footer>
     </article>
-    `));
-  };
+    `);
+    $tweetData.find(".tweet-content").text(tweet.content.text);
+    return $tweetData;
+};
 
   // Function loadTweets
   function loadTweets() {
@@ -80,11 +80,5 @@ $(document).ready(function () {
     });
   }
   loadTweets();
-  // renderTweets(tweetData);
 });
 
-//   const $tweet = createTweetElement(tweetData);
-
-// // Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
