@@ -15,30 +15,32 @@ $(document).ready(function () {
     $($tweetsContainer).appendTo(".container");
   };
 
-  // Event Listener and Prevent the Default Behaviour
-  $("form").submit(function (event) {
-    event.preventDefault();
-    const formData = $(this).serialize();
-    if ($('#tweet-text').val().length > 140) {
-      return $('.error-message').text('Oops! You have reached the maximum message length(140)').slideDown();
-    } else if ($('#tweet-text').val().length === 0) {
-      return $('.error-message').text('Please add any message to post your tweet!').slideDown();
-    } else {
-      $.ajax({
-        type: "POST",
-        url: "/tweets",
-        data: formData,
-        success: function (data) {
-          $(".tweets-container").empty();
-          loadTweets();
-        },
-        error: function () {
-          alert("error loading page");
-        },
-      });
-    }
-  });
-  // Function createTweetElement
+  // Function tweetsPost -> to post new tweets
+  const tweetsPost = function () {
+    $("form").submit(function (event) {
+      event.preventDefault();
+      const formData = $(this).serialize();
+      if ($('#tweet-text').val().length > 140) { //error-message handler
+        $('.error-message').text('Oops! You have reached the maximum message length(140)').slideDown().delay(2000).slideUp();
+      } else if ($('#tweet-text').val().length === 0) {
+        $('.error-message').text('Please add any message to post your tweet!').slideDown().delay(2000).slideUp();
+      } else {
+        $.ajax({
+          type: "POST",
+          url: "/tweets",
+          data: formData,
+          success: function (data) {
+            $(".tweets-container").empty();
+            loadTweets();
+          },
+          error: function () {
+            alert("error loading page");
+          },
+        });
+      }
+    });
+  };
+  // Function createTweetElement -> create new tweet post
 const createTweetElement = function (tweet) {
  const $tweetData = $(`<article class="tweet">
       <header>
@@ -63,7 +65,7 @@ const createTweetElement = function (tweet) {
     return $tweetData;
 };
 
-  // Function loadTweets
+  // Function loadTweets -> to laad tweets
   function loadTweets() {
     $.ajax({
       type: "GET",
@@ -80,5 +82,5 @@ const createTweetElement = function (tweet) {
     });
   }
   loadTweets();
+  tweetsPost();
 });
-
