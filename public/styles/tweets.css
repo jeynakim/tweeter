@@ -44,4 +44,6 @@ footer > span {
   margin-left: 10px;
 }
 
-
+.tweets-container {
+  margin-top: -5px;
+}
