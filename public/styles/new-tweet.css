@@ -1,47 +1,21 @@
 .new-tweet {
   display: flex;
-  width: 100%;
   justify-content: start;
   flex-direction: column;
   align-items: stretch;
-  margin-bottom:5%;
-}
-
-.header-icon {
-  display: flex;
-  align-items: center;
-}
-
-.header-icon > span {
-  margin-left: 10px;
+  width: 100%;
+  margin-bottom: 5%;
 }
 
 #tweet-text {
-width: 100%;
-border: none;
-resize: none;
-border-bottom: 3px solid;
-background:transparent;
+  width: 100%;
+  border: none;
+  resize: none;
+  border-bottom: 3px solid;
+  background: transparent;
 }
 
-button {
-  border:none;
-  border-radius: 2px;
-  padding: 0.3em 0.5em 0.3em 0.5em;
-  margin-top: 12px;
-  background-color: #4056A1;
-  color:white;
-  }
-
-.tweet-footer {
-display: flex;
-justify-content: space-between;
-font-family: 'Bungee';
-align-items:center;
-}
-
-
-article.tweet header{
+article.tweet header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,8 +27,8 @@ article.tweet header{
   align-items: center;
 }
 
-article.tweet footer{
-  display:flex;
+article.tweet footer {
+  display: flex;
   align-items: center;
   border-top: 3px solid;
   justify-content: space-between;
@@ -62,36 +36,27 @@ article.tweet footer{
   margin-bottom: 20px;
 }
 
-.tweet {
-  border: 3px solid;
-  padding-top: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-bottom: 30px;
-  word-wrap: break-word;
-}
-
-.tweet:hover {
-  box-shadow: 6px 3px 3px grey;
-}
-
-.tweet-icon {
-  color: #4056A1;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
-.tweet-icon > i:hover {
-  color:#ffca28
-}
-
-footer > span {
-  margin-top: 10px;
-  margin-left:10px;
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bungee";
+  align-items: center;
 }
 
 .tweets-container {
   margin-top: 30px;
 }
 
-
+.error-message {
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #d8000c;
+  background-color: #ffbaba;
+  background-image: url("https://i.imgur.com/GnyDvKN.png");
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
