@@ -14,27 +14,33 @@ $(document).ready(function () {
     }
     $($tweetsContainer).appendTo(".container");
   };
-  
+
   // Event Listener and Prevent the Default Behaviour
   $("form").submit(function (event) {
     event.preventDefault();
     const formData = $(this).serialize();
-    $.ajax({
-      type: "POST",
-      url: '/tweets',
-      data: formData,
-      success: function (data) {
-        $(".tweets-container").empty()
-        loadTweets();
-      }, error: function () {
-        alert('error loading page');
-      }
-    });
+    if ($('#tweet-text').val().length > 140) {
+     alert('You have reached the maximum message length')
+    } else if ($('#tweet-text').val().length === 0) {
+      alert('Please add your message to post your tweet')
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data: formData,
+        success: function (data) {
+          $(".tweets-container").empty();
+          loadTweets();
+        },
+        error: function () {
+          alert("error loading page");
+        },
+      });
+    }
   });
-  
   // Function createTweetElement
   const createTweetElement = function (tweet) {
-    return $tweetData = $(`<article class="tweet">
+    return ($tweetData = $(`<article class="tweet">
       <header>
         <div class="header-icon">
           <img src="${tweet.user.avatars}">
@@ -54,34 +60,31 @@ $(document).ready(function () {
         </div>
       </footer>
     </article>
-    `);
+    `));
+  };
+
+  // Function loadTweets
+  function loadTweets() {
+    $.ajax({
+      type: "GET",
+      url: "/tweets",
+      success: function (data) {
+        const sortedData = data.sort((pre, crr) => {
+          return crr.created_at - pre.created_at;
+        });
+        renderTweets(sortedData);
+      },
+      error: function () {
+        alert("error loading page");
+      },
+    });
   }
-  
-    // Function loadTweets
-    function loadTweets() {
-      $.ajax({
-        type: "GET",
-        url: '/tweets',
-        success: function (data) {
-          const sortedData = data.sort((pre, crr) => {
-            return crr.created_at - pre.created_at;
-          })
-          renderTweets(sortedData);
-        }, error: function () {
-          alert('error loading page');
-        }
-      });
-    }
   loadTweets();
-    // renderTweets(tweetData);
-  });
-
-
+  // renderTweets(tweetData);
+});
 
 //   const $tweet = createTweetElement(tweetData);
 
 // // Test / driver code (temporary)
 // console.log($tweet); // to see what it looks like
 // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
-
