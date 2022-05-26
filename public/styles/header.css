@@ -7,9 +7,15 @@
   width: 100%;
   padding-top: 14em;
   padding-bottom: 10em;
+  margin-top: 20px;
   background-color: #bc4749;
   background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
 }
+
+.header-image {
+margin-top: 395px;
+}
+
 
 h2 {
   margin: 0;
