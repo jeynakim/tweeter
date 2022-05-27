@@ -1,3 +1,4 @@
+// Number of Character and Characters in text area limit setting (140 words)
 let numberOfCharacters = 140;
 $(document).ready(function () {
   $("#tweet-text").keyup(function () {
@@ -5,10 +6,10 @@ $(document).ready(function () {
     const charactersLeft = numberOfCharacters - chartersInTextArea;
     if (chartersInTextArea > 140) {
       ["-", charactersLeft].join("");
-      $(".counter").css("color", "red").text(charactersLeft)
+      $(".counter").css("color", "#bc4749").text(charactersLeft)
     }
     else {
-      $(".counter").css("color", "black").text(charactersLeft)
+      $(".counter").css("color", "#545149").text(charactersLeft)
     }
   });
 });
