@@ -11,7 +11,7 @@
   width: 100%;
   border: none;
   resize: none;
-  border-bottom: 3px solid;
+  border-bottom: 3px solid #545149;
   background: transparent;
 }
 
@@ -41,6 +41,7 @@ article.tweet footer {
   justify-content: space-between;
   font-family: "Bungee";
   align-items: center;
+  color: #545149;
 }
 
 .tweets-container {
