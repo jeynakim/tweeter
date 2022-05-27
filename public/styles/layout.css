@@ -15,39 +15,36 @@ html {
  */
 
 body {
+  display: flex;
+  flex-wrap: wrap;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 20px;
   font-family: 'Source Sans Pro';
+  padding-top: 95px;
 }
 
+/* Tweet Container Box CSS */ 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   margin-top: 5%;
   margin-right: 5%;
   margin-left: 5%;
   background-color: #f4f1ec;
 }
  
- /* User Name CSS */
- .user-name {
-  display: block;
-  position: relative;
-  text-align: center;
-  border: solid 5px #ffbc42;
-  border-top-left-radius: 37px 140px;
-  border-top-right-radius: 23px 120px;
-  border-bottom-left-radius: 120px 19px;
-  border-bottom-right-radius: 120px 24px;
-  padding: 30px 20px;
-  max-width: 265px;
-  width: 60%;
-  margin-top: 1px;
-  margin-bottom: 385px;
-  line-height: 3px;
-  transform: rotate(-1deg);
-  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
-  transition: all 0.13s ease-in;
+/* Scroll Button CSS */ 
+ .scroll-button {
+  position: fixed;
+  z-index: 1;
+  color: white;
+  background-color: #bc4749;
+  bottom : 0;
+  left: 0;
+  right: 0;
+  margin: 1em;
+  padding: 0.5em 1em 0.5em 1em;
  }
+
