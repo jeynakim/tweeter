@@ -33,7 +33,7 @@ $(document).ready(function() {
       if ($('#tweet-text').val().length > 140) { //error-message handler
         $('.error-message').text('Oops! You have reached the maximum message length(140)').slideDown().delay(3000).slideUp();
       } else if ($('#tweet-text').val().length === 0) {
-        $('.error-message').text('Please add any message to post your tweet!').slideDown().delay(12000).slideUp();
+        $('.error-message').text('Please add any message to post your tweet!').slideDown().delay(3000).slideUp();
       } else {
         $.ajax({
           type: "POST",
