@@ -6,9 +6,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-[Tweeter Page Web Version](./docs/tweeter-web.png)
-[Tweeter Error Message](./docs/tweeter-error.png)
-[Tweeter Page Mobile](./docs/tweeter-mobile.png)
+![Tweeter Page Web Version](./docs/tweeter-web.png) ## Tweeter Page Web Version
+![Tweeter Error Message](./docs/tweeter-error.png) ## Tweeter Error Message
+![Tweeter Page Mobile](./docs/tweeter-mobile.png) ## Tweeter Page Mobile
 
 ## Getting Started
 
