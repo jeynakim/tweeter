@@ -14,7 +14,7 @@ $(document).ready(function() {
       $button.hide();
     }
   });
-
+  
   // Function renderTweets ->
   // loops through tweets, calls createTweetElement for each tweet, takes return value and appends it to the tweets container
   const renderTweets = function (tweets) {
@@ -42,6 +42,8 @@ $(document).ready(function() {
           success: function (data) {
             $(".tweets-container").empty();
             loadTweets();
+            $('#tweet-text').val("");
+            $('.counter').val(140);
           },
           error: function () {
             alert("error loading page");
