@@ -6,9 +6,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-![Tweeter Page Web Version](./docs/tweeter-web.png)
-![Tweeter Error Message](./docs/tweeter-error.png)
-![Tweeter Page Mobile](./docs/tweeter-mobile.png)
+[Tweeter Page Web Version](./docs/tweeter-web.png)
+[Tweeter Error Message](./docs/tweeter-error.png)
+[Tweeter Page Mobile](./docs/tweeter-mobile.png)
 
 ## Getting Started
 
@@ -22,6 +22,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Nodemon
 - Body-Parser
 - Chance
 - Md5
