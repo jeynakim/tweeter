@@ -2,12 +2,15 @@
 - A client-side single page Twitter clone where user can upload their desired “tweets” contents
 
 ## Final Product
+_Tweeter Project Demo_
+![tweeter-demo](https://user-images.githubusercontent.com/100962211/176349938-79c20bb8-27df-48df-87d4-42661070cdaa.gif)
+
 _Tweeter Page Web Version_
-![Tweeter Page Web Version](./docs/tweeter-web.png) 
+![main-tweeter](https://user-images.githubusercontent.com/100962211/176350014-741779a4-5030-49dc-bfdd-4dfb590cad0e.png)
+
 _Tweeter Error Message_
-![Tweeter Error Message](./docs/tweeter-error.png)
-_Tweeter Page Mobile_
-![Tweeter Page Mobile](./docs/tweeter-mobile.png) 
+![maximum](https://user-images.githubusercontent.com/100962211/176350026-2116712f-ed98-455f-b377-9e98d85bd541.png)
+
 
 ## Getting Started
 
