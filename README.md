@@ -1,6 +1,5 @@
 # Tweeter Project
-
-Tweeter is a simple, single-page Twitter clone.
+- A client-side single page Twitter clone where user can upload their desired “tweets” contents
 
 ## Final Product
 _Tweeter Page Web Version_
